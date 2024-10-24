@@ -1,5 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import Button from './src/components/Button';
+import Input from './src/components/Input';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
         title="React Native"
         onPress={() => console.log('React Native')}
       />
+      <Input />
     </View>
   );
 }
