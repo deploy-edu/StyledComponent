@@ -7,7 +7,9 @@ type ButtonContainerProps = {
 
 const ButtonContainer = styled.TouchableOpacity<ButtonContainerProps>`
   background-color: ${(props) =>
-    props.title === 'React Native' ? '#3498db' : '#9b59b6'};
+    props.title === 'React Native'
+      ? props.theme.primary
+      : props.theme.secondary};
   border-radius: 15px;
   padding: 15px 40px;
   justify-content: center;
