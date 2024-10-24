@@ -10,7 +10,8 @@ export default function App() {
         title="React Native"
         onPress={() => console.log('React Native')}
       />
-      <Input />
+      <Input borderColor="#3498db" />
+      <Input borderColor="#9b59b6" />
     </View>
   );
 }

@@ -1,21 +1,31 @@
 import styled from '@emotion/native';
+import { FC } from 'react';
 
-const StyledINput = styled.TextInput`
+type StyledInputProps = {
+  borderColor: string;
+};
+
+const StyledInput = styled.TextInput<StyledInputProps>`
   width: 200px;
   height: 60px;
   margin: 5px;
   padding: 10px;
   border-radius: 10px;
   border: 2px;
-  border-color: #3498db;
+  border-color: ${(props) => props.borderColor};
   font-size: 24px;
 `;
 
-const Input = () => {
+type Props = {
+  borderColor: string;
+};
+
+const Input: FC<Props> = ({ borderColor }) => {
   return (
-    <StyledINput
+    <StyledInput
       placeholder="Type something..."
-      placeholderTextColor="#3498db"
+      placeholderTextColor={borderColor}
+      borderColor={borderColor}
     />
   );
 };
