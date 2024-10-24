@@ -1,9 +1,10 @@
 import styled from '@emotion/native';
 import { ThemeProvider } from '@emotion/react';
 import { useState } from 'react';
+import { Switch } from 'react-native';
 import Button from './src/components/Button';
 import Input from './src/components/Input';
-import { lightTheme } from './src/constants/theme';
+import { darkTheme, lightTheme } from './src/constants/theme';
 
 const Container = styled.View`
   flex: 1;
@@ -16,9 +17,18 @@ const Container = styled.View`
 export default function App() {
   const [theme, setTheme] = useState(lightTheme);
 
+  const onValueChange = () => {
+    setTheme((state) => (state === lightTheme ? darkTheme : lightTheme));
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <Container>
+      <Container
+        style={{
+          backgroundColor: theme.backgroundColor,
+        }}
+      >
+        <Switch value={theme === darkTheme} onValueChange={onValueChange} />
         <Button
           title="Press me"
           onPress={() => console.log('Button pressed')}
