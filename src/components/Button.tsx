@@ -1,8 +1,13 @@
 import styled from '@emotion/native';
 import { FC } from 'react';
 
-const ButtonContainer = styled.TouchableOpacity`
-  background-color: #9b59b6;
+type ButtonContainerProps = {
+  title: string;
+};
+
+const ButtonContainer = styled.TouchableOpacity<ButtonContainerProps>`
+  background-color: ${(props) =>
+    props.title === 'React Native' ? '#3498db' : '#9b59b6'};
   border-radius: 15px;
   padding: 15px 40px;
   justify-content: center;
@@ -21,12 +26,7 @@ type Props = {
 
 const Button: FC<Props> = ({ title, onPress }) => {
   return (
-    <ButtonContainer
-      onPress={onPress}
-      style={{
-        backgroundColor: title === 'React Native' ? '#3498db' : '#9b59b6',
-      }}
-    >
+    <ButtonContainer onPress={onPress} title={title}>
       <Title>{title}</Title>
     </ButtonContainer>
   );
