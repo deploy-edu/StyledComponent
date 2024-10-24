@@ -21,7 +21,12 @@ type Props = {
 
 const Button: FC<Props> = ({ title, onPress }) => {
   return (
-    <ButtonContainer onPress={onPress}>
+    <ButtonContainer
+      onPress={onPress}
+      style={{
+        backgroundColor: title === 'React Native' ? '#3498db' : '#9b59b6',
+      }}
+    >
       <Title>{title}</Title>
     </ButtonContainer>
   );
