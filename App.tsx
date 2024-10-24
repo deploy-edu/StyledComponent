@@ -1,10 +1,18 @@
-import { StyleSheet, View } from 'react-native';
+import styled from '@emotion/native';
 import Button from './src/components/Button';
 import Input from './src/components/Input';
 
+const Container = styled.View`
+  flex: 1;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  gap: 20;
+`;
+
 export default function App() {
   return (
-    <View style={styles.container}>
+    <Container>
       <Button title="Press me" onPress={() => console.log('Button pressed')} />
       <Button
         title="React Native"
@@ -12,16 +20,6 @@ export default function App() {
       />
       <Input borderColor="#3498db" />
       <Input borderColor="#9b59b6" />
-    </View>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 20,
-  },
-});
