@@ -1,5 +1,6 @@
 import styled from '@emotion/native';
 import { ThemeProvider } from '@emotion/react';
+import { useState } from 'react';
 import Button from './src/components/Button';
 import Input from './src/components/Input';
 import { lightTheme } from './src/constants/theme';
@@ -13,8 +14,10 @@ const Container = styled.View`
 `;
 
 export default function App() {
+  const [theme, setTheme] = useState(lightTheme);
+
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={theme}>
       <Container>
         <Button
           title="Press me"
@@ -24,8 +27,8 @@ export default function App() {
           title="React Native"
           onPress={() => console.log('React Native')}
         />
-        <Input borderColor="#3498db" />
-        <Input borderColor="#9b59b6" />
+        <Input borderColor={theme.primary} />
+        <Input borderColor={theme.secondary} />
       </Container>
     </ThemeProvider>
   );
